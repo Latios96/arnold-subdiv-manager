@@ -19,6 +19,11 @@ class SubDivUI(QtWidgets.QWidget):
             self._subdiv_manager.apply_subdiv_to_selection
         )
         self._layout.addWidget(self._btn_apply_subdiv)
+        self._btn_remove_subdiv = QtWidgets.QPushButton("Deactivate Subdivision")
+        self._btn_remove_subdiv.clicked.connect(
+            self._subdiv_manager.remove_subdiv_to_selection
+        )
+        self._layout.addWidget(self._btn_remove_subdiv)
 
 
 if __name__ == "__main__":
