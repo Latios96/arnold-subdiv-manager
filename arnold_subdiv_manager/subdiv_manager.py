@@ -20,6 +20,16 @@ class SubDivManager(object):
         for mesh in meshes:
             self._maya_abstraction.apply_subdiv_attr(mesh, SubDivMode.CATCLARK)
 
+    def remove_subdiv_to_selection(self):
+        # type: () -> None
+        meshes = self._maya_abstraction.get_meshes_in_selection()
+
+        if self._should_load_arnold_plugin(meshes):
+            self._maya_abstraction.load_arnold_plugin()
+
+        for mesh in meshes:
+            self._maya_abstraction.apply_subdiv_attr(mesh, SubDivMode.NONE)
+
     def _should_load_arnold_plugin(self, meshes):
         # type: (List[Mesh]) -> bool
         return bool(meshes) and not self._maya_abstraction.is_arnold_plugin_loaded()
