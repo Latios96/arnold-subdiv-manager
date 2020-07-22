@@ -8,4 +8,7 @@ class SubDivManager(object):
 
     def apply_subdiv_to_selection(self):
         # type: () -> None
-        pass
+        meshes = self._maya_abstraction.get_meshes_in_selection()
+
+        for mesh in meshes:
+            self._maya_abstraction.apply_subdiv_attr(mesh)
