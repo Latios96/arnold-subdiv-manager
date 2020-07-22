@@ -3,6 +3,7 @@ from abc import ABCMeta, abstractmethod
 from typing import List
 
 from arnold_subdiv_manager.mesh import Mesh
+from arnold_subdiv_manager.subdiv_mode import SubDivMode
 
 
 class MayaAbstraction(object):
@@ -24,6 +25,6 @@ class MayaAbstraction(object):
         pass
 
     @abstractmethod
-    def apply_subdiv_attr(self, mesh):
-        # type: (Mesh) -> None
+    def apply_subdiv_attr(self, mesh, subdiv_mode):
+        # type: (Mesh, SubDivMode) -> None
         pass
