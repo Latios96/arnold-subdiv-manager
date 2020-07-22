@@ -1,4 +1,7 @@
+from typing import List
+
 from arnold_subdiv_manager.maya_abstraction import MayaAbstraction
+from arnold_subdiv_manager.mesh import Mesh
 
 
 class SubDivManager(object):
@@ -17,4 +20,5 @@ class SubDivManager(object):
             self._maya_abstraction.apply_subdiv_attr(mesh)
 
     def _should_load_arnold_plugin(self, meshes):
-        return meshes and not self._maya_abstraction.is_arnold_plugin_loaded()
+        # type: (List[Mesh]) -> bool
+        return bool(meshes) and not self._maya_abstraction.is_arnold_plugin_loaded()

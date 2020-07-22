@@ -21,6 +21,7 @@ def test_should_apply_subdiv_to_selection():
 
 
 def test_should_load_arnold_plugin_before_applying_subdiv():
+    # type: () -> None
     maya_abstraction = MagicMock()
     maya_abstraction.is_arnold_plugin_loaded.return_value = False
     subdiv_manager = SubDivManager(maya_abstraction)
@@ -31,6 +32,7 @@ def test_should_load_arnold_plugin_before_applying_subdiv():
 
 
 def test_should_not_load_arnold_plugin_again():
+    # type: () -> None
     maya_abstraction = MagicMock()
     maya_abstraction.is_arnold_plugin_loaded.return_value = True
     subdiv_manager = SubDivManager(maya_abstraction)
@@ -41,6 +43,7 @@ def test_should_not_load_arnold_plugin_again():
 
 
 def test_should_not_load_arnold_plugin_if_no_meshes_are_selected():
+    # type: () -> None
     maya_abstraction = MagicMock()
     maya_abstraction.get_meshes_in_selection.return_value = []
     maya_abstraction.is_arnold_plugin_loaded.return_value = True
