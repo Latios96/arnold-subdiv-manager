@@ -18,10 +18,10 @@ def test_should_apply_subdiv_to_selection():
 
     maya_abstraction.get_meshes_in_selection.assert_called_once()
     maya_abstraction.apply_subdiv_attr.assert_any_call(
-        Mesh("pCube1"), SubDivMode.CATCLARK
+        Mesh("pCube1"), SubDivMode.CAT_CLARK
     )
     maya_abstraction.apply_subdiv_attr.assert_any_call(
-        Mesh("pCube2"), SubDivMode.CATCLARK
+        Mesh("pCube2"), SubDivMode.CAT_CLARK
     )
 
 

@@ -12,7 +12,7 @@ class SubDivManager(object):
 
     def apply_subdiv_to_selection(self):
         # type: () -> None
-        self._apply_subdiv_mode(SubDivMode.CATCLARK)
+        self._apply_subdiv_mode(SubDivMode.CAT_CLARK)
 
     def remove_subdiv_to_selection(self):
         # type: () -> None
