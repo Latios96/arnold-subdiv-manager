@@ -2,7 +2,7 @@ from mock import MagicMock
 from Qt import QtCore
 from pytestqt import qtbot
 
-from arnold_subdiv_manager.SubDivUI import SubDivUI
+from arnold_subdiv_manager.subdiv_ui import SubDivUI
 
 
 def test_button_click_should_activate(qtbot):
