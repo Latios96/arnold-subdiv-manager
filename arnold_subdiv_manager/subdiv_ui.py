@@ -24,15 +24,3 @@ class SubDivUI(QtWidgets.QWidget):
             self._subdiv_manager.remove_subdiv_to_selection
         )
         self._layout.addWidget(self._btn_remove_subdiv)
-
-
-if __name__ == "__main__":
-    from mock import MagicMock
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-
-    ui = SubDivUI(MagicMock())
-    ui.show()
-
-    app.exec_()
