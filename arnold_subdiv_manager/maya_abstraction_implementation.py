@@ -10,17 +10,20 @@ from arnold_subdiv_manager.subdiv_mode import SubDivMode
 class MayaAbstractionImplementation(MayaAbstraction):
     def load_arnold_plugin(self):
         # type: () -> None
-        pm.loadPlugin('mtoa')
+        pm.loadPlugin("mtoa")
 
     def is_arnold_plugin_loaded(self):
         # type: () -> bool
-        return pm.pluginInfo('mtoa', query=True, loaded=True)
+        return pm.pluginInfo("mtoa", query=True, loaded=True)
 
     def get_meshes_in_selection(self):
         # type: () -> List[Mesh]
         def is_mesh(candidate):
-            is_mesh_shape = candidate.type() == 'mesh'
-            has_mesh_shape = candidate.type() == 'transform' and candidate.getShape().type() == 'mesh'
+            is_mesh_shape = candidate.type() == "mesh"
+            has_mesh_shape = (
+                candidate.type() == "transform"
+                and candidate.getShape().type() == "mesh"
+            )
             return is_mesh_shape or has_mesh_shape
 
         meshes = filter(is_mesh, pm.selected())
