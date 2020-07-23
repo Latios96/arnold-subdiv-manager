@@ -15,6 +15,7 @@ def test_button_click_should_activate(qtbot):
 
     subdiv_manager.apply_subdiv_to_selection.assert_called_once()
 
+
 def test_button_click_should_deactivate(qtbot):
     # type: (qtbot) -> None
     subdiv_manager = MagicMock()
