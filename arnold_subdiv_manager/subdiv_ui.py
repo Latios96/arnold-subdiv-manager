@@ -1,17 +1,18 @@
 from arnold_subdiv_manager.subdiv_manager import SubDivManager
-from Qt import QtWidgets
+from Qt import QtWidgets, QtCore
 
 
 class SubDivUI(QtWidgets.QWidget):
-    def __init__(self, subdiv_manager):
-        # type: (SubDivManager) -> None
-        super(SubDivUI, self).__init__()
+    def __init__(self, subdiv_manager, parent=None):
+        # type: (SubDivManager, QtWidgets.QWidget) -> None
+        super(SubDivUI, self).__init__(parent)
         self._subdiv_manager = subdiv_manager
         self._setup_ui()
 
     def _setup_ui(self):
         # type: () -> None
         self.setWindowTitle("Arnold SubDiv Manager")
+        self.setWindowFlags(QtCore.Qt.Window)
         self._layout = QtWidgets.QVBoxLayout()
         self.setLayout(self._layout)
         self._btn_apply_subdiv = QtWidgets.QPushButton("Active Subdivision")
