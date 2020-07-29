@@ -7,9 +7,8 @@ def has_maya():
     # type: () -> bool
     try:
         import maya.cmds as cmds
-
         return True
-    except:
+    except ImportError:
         pass
     return False
 
