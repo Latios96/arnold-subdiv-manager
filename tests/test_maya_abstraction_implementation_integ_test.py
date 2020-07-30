@@ -1,8 +1,9 @@
 import os
 
-from arnold_subdiv_manager.mesh import Mesh
 from arnold_subdiv_manager.subdiv_manager import SubDivManager
 from tests import maya_only
+import cv2
+import numpy as np
 
 
 def get_resource(name):
@@ -21,7 +22,13 @@ def render_to(file_path):
 
 
 def assert_images_are_equal(image1, image2):
-    pass
+    # type: (str, str) -> None
+
+    x1 = cv2.imread("/Users/jan/workspace/arnold-subdiv-manager/tests/data/integration_test/after.png")
+    x2 = cv2.imread("/Users/jan/workspace/arnold-subdiv-manager/tests/data/integration_test/after.png")
+
+    diff = cv2.subtract(x1, x2)
+    assert not np.any(diff)
 
 
 @maya_only
