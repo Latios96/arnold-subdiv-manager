@@ -25,7 +25,9 @@ class SubDivManager(object):
     def _apply_subdiv_mode(self, subdiv_mode):
         # type: (SubDivMode) -> None
         meshes = self._maya_abstraction.get_meshes_in_selection()
+
         if self._should_load_arnold_plugin(meshes):
             self._maya_abstraction.load_arnold_plugin()
+
         for mesh in meshes:
             self._maya_abstraction.apply_subdiv_attr(mesh, subdiv_mode)
